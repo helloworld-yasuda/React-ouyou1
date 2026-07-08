@@ -1,8 +1,9 @@
 import React from "react";
 import UserCard from "./UserCard";
 import { useEffect, useState } from "react";
-import fetchUsers, { User } from "./Fetch";
+import { User } from "./type";
 import fetchUserStatus from "./FetchUser";
+import fetchUsers from "./Fetch";
 
 const App = () => {
   const [users, setUsers] = useState<User[]>([]);
