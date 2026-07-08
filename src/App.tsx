@@ -1,76 +1,14 @@
-import React from "react";
-import UserCard from "./UserCard";
-import { useEffect, useState } from "react";
-import { User } from "./type";
-import fetchUserStatus from "./FetchUser";
-import fetchUsers from "./Fetch";
+import { Routes, Route } from "react-router-dom";
+import UserList from "./UserList";
+import UserDetail from "./UserDetail";
 
-const App = () => {
-  const [users, setUsers] = useState<User[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [searchText, setSearchText] = useState("");
-  const [selectUser, setSelectUser] = useState<User | null>(null);
-  const getUser = async (userId: number) => {
-    const data = await fetchUserStatus(userId);
-    if (data) {
-      setSelectUser(data);
-    }
-  };
-  const getUsers = async () => {
-    const data = await fetchUsers();
-    if (data) {
-      setUsers(data);
-    }
-    setLoading(false);
-  };
-  useEffect(() => {
-    getUsers();
-  }, []);
-
-  if (selectUser) {
-    return (
-      <div className="userCardContainer">
-        <h1>ユーザーページ</h1>
-        <div className="detailContainer">
-          <p>name: {selectUser.username}</p>
-          <p>email: {selectUser.email}</p>
-          <p>phone: {selectUser.phone}</p>
-          <p>Address</p>
-          <p>street: {selectUser.address.street}</p>
-          <p>suite: {selectUser.address.suite}</p>
-          <p>city: {selectUser.address.city}</p>
-          <button onClick={() => setSelectUser(null)}>戻る</button>
-        </div>
-      </div>
-    );
-  }
-
-  return loading ? (
-    <h2>Loading...</h2>
-  ) : (
-    <div className="userCardContainer">
-      <h1>ユーザー一覧</h1>
-      <div className="searchTextContainer">
-        <input
-          type="text"
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
-          placeholder="ユーザー名を検索"
-        />
-      </div>
-      {users
-        .filter((user) => user.username.includes(searchText))
-        .map((user) => (
-          <UserCard
-            key={user.id}
-            id={user.id}
-            username={user.username}
-            email={user.email}
-            onClick={() => getUser(user.id)}
-          />
-        ))}
-    </div>
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<UserList />} />
+      <Route path="/users/:id" element={<UserDetail />} />
+    </Routes>
   );
-};
+}
 
 export default App;

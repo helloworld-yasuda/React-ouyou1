@@ -1,4 +1,6 @@
-const fetchUserStatus = async (userId: number) => {
+import { User } from "./type";
+
+const fetchUserStatus = async (userId: number): Promise<User> => {
   const response = await fetch(
     `https://jsonplaceholder.typicode.com/users/${userId}`,
   );
