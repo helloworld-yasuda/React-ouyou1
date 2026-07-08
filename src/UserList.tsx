@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import UserCard from "./UserCard";
-import fetchUsers from "./Fetch";
+import fetchUsers from "./api/users";
 import { User } from "./type";
 
 const UserList = () => {

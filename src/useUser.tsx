@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import fetchUserStatus from "./FetchUser";
+import fetchUserStatus from "./api/userStates";
 import { User } from "./type";
 
 export const useUser = () => {

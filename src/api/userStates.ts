@@ -1,4 +1,4 @@
-import { User } from "./type";
+import { User } from "../type";
 
 const fetchUserStatus = async (userId: number): Promise<User> => {
   const response = await fetch(
