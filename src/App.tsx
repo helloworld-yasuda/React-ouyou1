@@ -16,15 +16,14 @@ const App = () => {
       setSelectUser(data);
     }
   };
-
+  const getUsers = async () => {
+    const data = await fetchUsers();
+    if (data) {
+      setUsers(data);
+    }
+    setLoading(false);
+  };
   useEffect(() => {
-    const getUsers = async () => {
-      const data = await fetchUsers();
-      if (data) {
-        setUsers(data);
-      }
-      setLoading(false);
-    };
     getUsers();
   }, []);
 
