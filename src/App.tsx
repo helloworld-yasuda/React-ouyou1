@@ -67,8 +67,7 @@ const App = () => {
             email = {user.email}
             onClick={() => getUser(user.id)}
             />
-        ))
-        }
+        ))}
       </div>
   )
 }
