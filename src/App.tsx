@@ -45,8 +45,9 @@ const App = () => {
     );
   }
 
-  if (loading) return <h2>Loading...</h2>;
-  return (
+  return loading ? (
+    <h2>Loading...</h2>
+  ) : (
     <div className="userCardContainer">
       <h1>ユーザー一覧</h1>
       <div className="searchTextContainer">
