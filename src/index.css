@@ -1,55 +1,55 @@
 body {
-  background-color: #D9D9D9;
+  background-color: #d9d9d9;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 80px auto;
 }
 
-.searchContainer{
+.searchContainer {
   display: flex;
   gap: 20px;
 }
 
-.userCardContainer{
+.userCardContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
 }
 
-.userText{
+.userText {
   display: flex;
   flex-direction: column;
 }
 
-.userCardText{
+.userCardText {
   color: #808080;
   margin: 0;
 }
 
-.idText{
+.idText {
   margin: 0;
 }
 
-.userImage{
+.userImage {
   width: 60px;
   height: 60px;
-  background-color: #D9D9D9;
+  background-color: #d9d9d9;
 }
 
-.userContainer{
+.userContainer {
   width: 310px;
-  background-color: #FFFFFF;
-  padding:20px ;
+  background-color: #ffffff;
+  padding: 20px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: 30px;
 }
 
-.detailContainer{
-  background-color: #FFFFFF;
+.detailContainer {
+  background-color: #ffffff;
   padding: 40px;
   font-weight: bold;
 }
