@@ -7,7 +7,7 @@ import fetchUserStatus from "./FetchUser";
 const App = () => {
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
-  const [search, setSearch] = useState("");
+  const [searchText, setSearchText] = useState("");
   const [selectUser, setSelectUser] = useState<User | null>(null);
   const getUser = async (userId: number) => {
     const data = await fetchUserStatus(userId);
@@ -45,22 +45,20 @@ const App = () => {
     );
   }
 
-  if (loading) {
-    return <h2>Loading...</h2>;
-  }
+  if (loading) return <h2>Loading...</h2>;
   return (
     <div className="userCardContainer">
       <h1>ユーザー一覧</h1>
-      <div className="searchContainer">
+      <div className="searchTextContainer">
         <input
           type="text"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
           placeholder="ユーザー名を検索"
         />
       </div>
       {users
-        .filter((user) => user.username.includes(search))
+        .filter((user) => user.username.includes(searchText))
         .map((user) => (
           <UserCard
             key={user.id}
